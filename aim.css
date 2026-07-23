@@ -1,0 +1,276 @@
+/* ── GATE ────────────────────────────────────────────────────── */
+.gate-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 60px;
+}
+.gate-card {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.gate-icon {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: rgba(255,32,32,0.1);
+  border: 1px solid rgba(255,32,32,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin: 0 auto;
+}
+.gate-icon.tiktok {
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.gate-card h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  text-align: center;
+}
+.gate-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+}
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.tab.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* FORMS */
+.auth-form { display: flex; flex-direction: column; gap: 12px; }
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  transition: border-color 0.2s;
+}
+.input-group:focus-within { border-color: rgba(255,32,32,0.4); }
+.input-group i { color: var(--text-muted); font-size: 0.9rem; min-width: 16px; }
+.input-group input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+}
+.input-group input::placeholder { color: var(--text-muted); }
+.form-error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  min-height: 20px;
+  text-align: center;
+}
+
+/* TIKTOK BUTTON */
+.tiktok-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.tiktok-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* CHECKBOX */
+.checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  user-select: none;
+}
+.custom-checkbox input { display: none; }
+.checkmark {
+  width: 20px; height: 20px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.04);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.custom-checkbox input:checked + .checkmark {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.custom-checkbox input:checked + .checkmark::after {
+  content: '✓';
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* hCaptcha centering */
+.h-captcha { display: flex; justify-content: center; }
+
+/* ── AIM HERO ────────────────────────────────────────────────── */
+.aim-hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+  gap: 60px;
+}
+.aim-hero-content { flex: 1; }
+.aim-hero-img {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(255,32,32,0.15);
+}
+.aim-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── FEATURES ────────────────────────────────────────────────── */
+.aim-features {
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.feature-item {
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.feature-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(255,32,32,0.1);
+}
+.feature-item i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+.feature-item h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.feature-item p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; }
+
+/* ── DOWNLOAD ────────────────────────────────────────────────── */
+.aim-download {
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+}
+.download-card {
+  max-width: 480px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.download-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(255,32,32,0.1);
+  border: 1px solid rgba(255,32,32,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+.download-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.download-card > p { color: var(--text-muted); font-size: 0.9rem; }
+.download-info {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.download-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.download-info span i { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .aim-hero { flex-direction: column; text-align: center; }
+  .aim-hero-img { width: 100%; }
+  .hero-buttons { justify-content: center; }
+}

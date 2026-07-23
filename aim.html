@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Val Aim Training | Void Market</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ff2020%22/><text x=%2250%22 y=%2272%22 font-family=%22Arial%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22%23fff%22 text-anchor=%22middle%22>V</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="aim.css">
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- NAV -->
+  <nav class="navbar glass">
+    <div class="nav-content">
+      <a href="index.html" class="logo">VOID <span class="accent">MARKET</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+      </ul>
+      <a href="https://discord.gg/" class="btn-discord" target="_blank">
+        <i class="fab fa-discord"></i> Discord
+      </a>
+    </div>
+  </nav>
+
+  <!-- GATE: affiché si pas connecté/vérifié -->
+  <div id="gate" class="gate-wrapper">
+    <div class="gate-card glass">
+      <div class="gate-icon"><i class="fas fa-crosshairs"></i></div>
+      <h2>Val Aim Training</h2>
+      <p class="gate-desc">Accès gratuit — Crée un compte et confirme ton abonnement TikTok pour télécharger.</p>
+
+      <!-- TABS -->
+      <div class="tabs">
+        <button class="tab active" id="tab-login" onclick="switchTab('login')">Se connecter</button>
+        <button class="tab" id="tab-register" onclick="switchTab('register')">S'inscrire</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="form-login" class="auth-form" onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="login-email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="login-password" placeholder="Mot de passe" required>
+        </div>
+        <div id="login-error" class="form-error"></div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+          Se connecter <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="form-register" class="auth-form" style="display:none;" onsubmit="handleRegister(event)">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="reg-email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="reg-password" placeholder="Mot de passe (min 6 caractères)" required minlength="6">
+        </div>
+        <div id="register-error" class="form-error"></div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+          Créer un compte <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- STEP 2: TikTok + Captcha -->
+  <div id="verify-step" class="gate-wrapper" style="display:none;">
+    <div class="gate-card glass">
+      <div class="gate-icon tiktok"><i class="fab fa-tiktok"></i></div>
+      <h2>Dernière étape</h2>
+      <p class="gate-desc">Confirme ton abonnement TikTok pour accéder au contenu gratuit.</p>
+
+      <a href="https://www.tiktok.com/@yt96c" target="_blank" class="tiktok-btn">
+        <i class="fab fa-tiktok"></i> Aller sur le TikTok @yt96c
+      </a>
+
+      <div class="checkbox-group">
+        <label class="custom-checkbox">
+          <input type="checkbox" id="tiktok-check">
+          <span class="checkmark"></span>
+          Je confirme être abonné à <strong>@yt96c</strong> sur TikTok
+        </label>
+      </div>
+
+      <!-- hCaptcha -->
+      <div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001" data-theme="dark"></div>
+
+      <div id="verify-error" class="form-error"></div>
+      <button onclick="handleVerify()" class="btn-primary" style="width:100%; justify-content:center; margin-top:16px;">
+        Accéder au contenu <i class="fas fa-unlock"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENT: page produit (cachée jusqu'à vérification) -->
+  <div id="content" style="display:none;">
+    <section class="aim-hero">
+      <div class="aim-hero-content">
+        <div class="hero-badge"><i class="fas fa-crosshairs"></i> 100% Gratuit</div>
+        <h1>Val Aim <span class="accent">Training</span></h1>
+        <p class="subtitle">Améliore ta précision et ta réactivité sur Valorant. Outil léger, rapide et gratuit.</p>
+        <div class="hero-buttons">
+          <a href="#aim-download" class="btn-primary">Télécharger <i class="fas fa-download"></i></a>
+          <a href="#aim-features" class="btn-secondary">Voir les features</a>
+        </div>
+      </div>
+      <div class="aim-hero-img">
+        <img src="https://i.imgur.com/ZZ62Hyu.jpeg" alt="Val Aim Training">
+      </div>
+    </section>
+
+    <section id="aim-features" class="aim-features">
+      <div class="section-header">
+        <h2>Features <span class="accent">incluses</span></h2>
+        <p>Tout ce dont tu as besoin pour progresser.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item glass">
+          <i class="fas fa-crosshairs"></i>
+          <h4>Aim Trainer</h4>
+          <p>Entraînement précis adapté à Valorant</p>
+        </div>
+        <div class="feature-item glass">
+          <i class="fas fa-bolt"></i>
+          <h4>Réactivité</h4>
+          <p>Exercices de réaction pour améliorer ton temps de réponse</p>
+        </div>
+        <div class="feature-item glass">
+          <i class="fas fa-chart-line"></i>
+          <h4>Statistiques</h4>
+          <p>Suivi de tes performances au fil du temps</p>
+        </div>
+        <div class="feature-item glass">
+          <i class="fas fa-microchip"></i>
+          <h4>Léger</h4>
+          <p>Faible utilisation CPU/RAM, tourne en arrière-plan</p>
+        </div>
+        <div class="feature-item glass">
+          <i class="fas fa-windows"></i>
+          <h4>Compatible</h4>
+          <p>Windows 10 & 11, AMD & Intel</p>
+        </div>
+        <div class="feature-item glass">
+          <i class="fas fa-gift"></i>
+          <h4>100% Gratuit</h4>
+          <p>Aucun paiement requis, accès à vie</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="aim-download" class="aim-download">
+      <div class="download-card glass">
+        <div class="download-icon"><i class="fas fa-download"></i></div>
+        <h3>Télécharger Val Aim Training</h3>
+        <p>Version 1.0.0 — Windows 10/11</p>
+        <div class="download-info">
+          <span><i class="fas fa-hdd"></i> ~2 MB</span>
+          <span><i class="fas fa-shield-halved"></i> Vérifié</span>
+          <span><i class="fas fa-clock"></i> Gratuit à vie</span>
+        </div>
+        <a href="#" class="btn-primary" style="margin-top: 8px;">
+          <i class="fas fa-download"></i> Télécharger maintenant
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 12px;">
+          En téléchargeant, vous acceptez nos conditions d'utilisation.
+        </p>
+      </div>
+    </section>
+
+    <footer class="glass">
+      <div class="footer-content">
+        <div class="footer-logo">VOID <span class="accent">MARKET</span></div>
+        <p>Premium Software Solutions</p>
+        <div class="socials">
+          <a href="https://discord.gg/" target="_blank"><i class="fab fa-discord"></i></a>
+          <a href="https://www.tiktok.com/@yt96c" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 Void Market. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script src="aim.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
