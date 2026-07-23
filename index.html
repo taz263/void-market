@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Void Market | Premium Software</title>
+  <meta name="description" content="Void Market — Premium software solutions. VGC Emulator & Aim Training for Valorant.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ff2020%22/><text x=%2250%22 y=%2272%22 font-family=%22Arial%22 font-size=%2260%22 font-weight=%22bold%22 fill=%22%23fff%22 text-anchor=%22middle%22>V</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- NAV -->
+  <nav class="navbar glass">
+    <div class="nav-content">
+      <a href="#home" class="logo">VOID <span class="accent">MARKET</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <a href="https://discord.gg/" class="btn-discord" target="_blank">
+        <i class="fab fa-discord"></i> Discord
+      </a>
+      <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-shield-halved"></i> Trusted & Secure</div>
+      <h1 class="glitch" data-text="VOID MARKET">VOID MARKET</h1>
+      <p class="subtitle">Premium software solutions. Emulator & Aim tools engineered for performance and security.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn-primary">View Products <i class="fas fa-arrow-right"></i></a>
+        <a href="#pricing" class="btn-secondary">Pricing</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Clients</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">99%</span><span class="stat-label">Uptime</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Support</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products">
+    <div class="section-header">
+      <h2>Our <span class="accent">Products</span></h2>
+      <p>Built for performance, stability, and security.</p>
+    </div>
+    <div class="product-grid">
+
+      <!-- Emulator -->
+      <div class="product-card glass">
+        <div class="product-img">
+          <img src="https://i.imgur.com/AMg7JWk.jpeg" alt="VGC Emulator">
+        </div>
+        <div class="product-info">
+          <h3>VGC Emulator <span class="tag">Valorant</span></h3>
+          <p>Advanced VGC emulation software. Supports all Windows versions with Core Isolation on or off.</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> Windows 10 & 11 (All Winver)</li>
+            <li><i class="fas fa-check"></i> AMD & Intel Processors</li>
+            <li><i class="fas fa-check"></i> Core Isolation On/Off</li>
+            <li><i class="fas fa-check"></i> Instant Updates</li>
+          </ul>
+          <a href="#pricing" class="btn-primary small">Get it now</a>
+        </div>
+      </div>
+
+      <!-- Aim -->
+      <div class="product-card glass">
+        <div class="product-img">
+          <img src="https://i.imgur.com/ZZ62Hyu.jpeg" alt="Val Aim Training">
+        </div>
+        <div class="product-info">
+          <h3>Val Aim Training <span class="tag">Free</span></h3>
+          <p>Precision aim training tool for Valorant. Improve your accuracy and reaction time.</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> Windows 10 & 11</li>
+            <li><i class="fas fa-check"></i> AMD & Intel Processors</li>
+            <li><i class="fas fa-check"></i> Lightweight & Fast</li>
+            <li><i class="fas fa-check"></i> Completely Free</li>
+          </ul>
+          <a href="#pricing" class="btn-primary small">Get it now</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <div class="section-header">
+      <h2>Store <span class="accent">Pricing</span></h2>
+      <p>Simple pricing. No hidden fees.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Emulator Pricing -->
+      <div class="pricing-card glass">
+        <div class="glow-border"></div>
+        <div class="product-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>VGC Emulator</h3>
+        <div class="pricing-options">
+          <div class="price-option">
+            <span class="duration">7 Days</span>
+            <span class="price">24,99$</span>
+          </div>
+          <div class="price-option featured">
+            <span class="duration">1 Month</span>
+            <span class="price">45,99$</span>
+          </div>
+          <div class="price-option">
+            <span class="duration">Lifetime</span>
+            <span class="price">89,99$</span>
+          </div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> All Windows Versions</li>
+          <li><i class="fas fa-check-circle"></i> Instant Access</li>
+          <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
+        </ul>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-paypal"></i>
+        </div>
+        <a href="https://discord.gg/" class="btn-purchase" target="_blank">
+          <i class="fab fa-discord"></i> Buy on Discord
+        </a>
+      </div>
+
+      <!-- Aim Pricing -->
+      <div class="pricing-card glass featured-card">
+        <div class="glow-border"></div>
+        <div class="popular-badge">FREE</div>
+        <div class="product-icon"><i class="fas fa-crosshairs"></i></div>
+        <h3>Val Aim Training</h3>
+        <div class="pricing-options">
+          <div class="price-option featured">
+            <span class="duration">Lifetime</span>
+            <span class="price free">Gratuit</span>
+          </div>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Free Forever</li>
+          <li><i class="fas fa-check-circle"></i> All Windows Versions</li>
+          <li><i class="fas fa-check-circle"></i> Community Support</li>
+        </ul>
+        <div class="payment-methods">
+          <span style="color: var(--accent); font-size: 0.9rem;">No payment required</span>
+        </div>
+        <a href="https://discord.gg/" class="btn-purchase" target="_blank">
+          <i class="fab fa-discord"></i> Get on Discord
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="glass">
+    <div class="footer-content">
+      <div class="footer-logo">VOID <span class="accent">MARKET</span></div>
+      <p>Premium Software Solutions</p>
+      <div class="socials">
+        <a href="https://discord.gg/" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+      <p class="copyright">&copy; 2026 Void Market. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
