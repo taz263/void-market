@@ -236,6 +236,12 @@
   </div>
 
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script>
+    function toggleDetails() {
+      const panel = document.getElementById('details-panel');
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
   <script src="aim.js"></script>
   <script src="app.js"></script>
 </body>
